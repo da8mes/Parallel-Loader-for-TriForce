@@ -1,21 +1,9 @@
+# Author: Dawit Belayneh
+
 # HDF5Dataset is of class torch.utils.data.Dataset, and is initialized with a set of data files and the number of events per file.
 # __len__ returns the number of items in the dataset, which is simply the number of files times the number of events per file.
 # __getitem__ takes an index and returns that event. First it sees which file the indexed event would be in, and loads that file if it is not already in memory. It reads the entire ECAL, HCAL, and target information of that file into memory. Then it returns info for the requested event.
 # OrderedRandomSampler is used to pass indices to HDF5Dataset, but the indices are created in such a way that the first file is completely read first, and then the second file, then the third etc.
-######################################################
-# 10,000 events 
-# old loader 256 seconds loading and 8 seconds to setup
-# new loader 33 seconds loading and 25 seconds to setup (unchunked storage)
-# new loader 25 seconds loading and 25 seconds to setup (chunked 10x....)
-# that is a speed up of more than 10 times.
-#####################################################
-
-#####################################################
-# 20,000 events 
-# old loader 250 seconds loading and 8 seconds to setup
-# new loader 6 seconds loading and 25 seconds to setup (chunked 10x....) 50 loaders / 53 workers 
-# that is a speed up of more than 10 times.
-#####################################################
 
 #####################################################
 # Train a classifier using this loader
