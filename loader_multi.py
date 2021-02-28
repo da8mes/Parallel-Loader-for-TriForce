@@ -6,11 +6,6 @@
 # OrderedRandomSampler is used to pass indices to HDF5Dataset, but the indices are created in such a way that the first file is completely read first, and then the second file, then the third etc.
 
 #####################################################
-# Train a classifier using this loader
-# Get classifier from Matt
-# Work on slides
-#####################################################
-
 
 import torch.utils.data as data
 from torch import from_numpy
